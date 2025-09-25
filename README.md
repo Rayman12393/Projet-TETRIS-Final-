@@ -10,3 +10,9 @@ Une pièce 3×3 apparaît au centre, en haut de la grille 10×10.
 Elle descend à intervalles réguliers. On peut la déplacer et la faire pivoter pour l’emboîter au mieux.
 Quand une pièce ne peut plus descendre, elle se fige. Toute ligne entièrement remplie est effacée.
 La partie se termine si une nouvelle pièce ne peut pas apparaître.
+## Commande à utiliser 
+Flèches gauche/droite: déplacer la pièce
+Flèche bas: descendre d’un cran
+Flèche haut: pivoter (90°)
+p: pause / reprise
+q: quitter
