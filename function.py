@@ -85,3 +85,12 @@ class Tetris:
                   for i in range(len(self.piece[0]))]
         if self.can_move(0, 0, rotated):
             self.piece = rotated
+    def place_piece(self):
+        for y, row in enumerate(self.piece):
+            for x, cell in enumerate(row):
+                if cell and self.piece_y + y >= 0:
+                    self.grid[self.piece_y + y][self.piece_x + x] = 1
+        self.clear_lines()
+        self.piece = random.choice(PIECES)
+        self.piece_x = GRID_WIDTH // 2 - len(self.piece[0]) // 2
+        self.piece_y = 0
