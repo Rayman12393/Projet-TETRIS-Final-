@@ -127,3 +127,31 @@ def auto_fall(game):
         time.sleep(1.0)  # Attendre 1 seconde
         if game.running and not game.game_over:
             game.move_down()
+def main():
+    game = Tetris()
+    fall_thread = threading.Thread(target=auto_fall, args=(game,), daemon=True)
+    fall_thread.start()
+    print(" TETRIS démarré ! Les pièces tombent automatiquement...")
+    time.sleep(2)
+    while game.running and not game.game_over:
+        game.draw()
+        key = get_key()
+        if key:
+            if key in ['Q', 'A']:  # Gauche
+                game.move_left()
+            elif key == 'D':  # Droite
+                game.move_right()
+            elif key == 'S':  # Bas (accélère la chute)
+                game.move_down()
+            elif key == 'Z':  # Tourner
+                game.rotate()
+            elif key == 'X':  # Quitter
+                game.running = False
+                break
+        time.sleep(0.05)  # Petite pause pour éviter la surcharge CPU
+    game.running = False
+    game.draw()
+    print(" Score final:", game.score)
+    print("Merci d'avoir joué ! Au revoir")
+if __name__ == "__main__":
+    main()
