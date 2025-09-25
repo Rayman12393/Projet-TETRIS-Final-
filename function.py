@@ -30,3 +30,5 @@ class Tetris:
         self.score = 0
         self.game_over = False
         self.running = True
+    def clear_screen(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
