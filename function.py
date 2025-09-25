@@ -105,3 +105,19 @@ class Tetris:
             del self.grid[y]
             self.grid.insert(0, [0] * GRID_WIDTH)
             self.score += 100
+def get_key():
+    if WINDOWS:
+        if msvcrt.kbhit():
+            key = msvcrt.getch().decode('utf-8').upper()
+            return key
+    else:
+        try:
+            stdin_fd = sys.stdin.fileno()
+            old_settings = termios.tcgetattr(stdin_fd)
+            tty.setraw(stdin_fd)
+            key = sys.stdin.read(1).upper()
+            termios.tcsetattr(stdin_fd, termios.TCSADRAIN, old_settings)
+            return key
+        except:
+            pass
+    return None
