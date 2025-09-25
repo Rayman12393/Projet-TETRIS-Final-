@@ -121,3 +121,9 @@ def get_key():
         except:
             pass
     return None
+def auto_fall(game):
+    """Thread pour faire tomber les pièces automatiquement"""
+    while game.running and not game.game_over:
+        time.sleep(1.0)  # Attendre 1 seconde
+        if game.running and not game.game_over:
+            game.move_down()
