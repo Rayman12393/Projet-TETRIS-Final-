@@ -80,3 +80,8 @@ class Tetris:
         else:
             self.place_piece()
             return False
+    def rotate(self):
+        rotated = [[self.piece[len(self.piece)-1-j][i] for j in range(len(self.piece))] 
+                  for i in range(len(self.piece[0]))]
+        if self.can_move(0, 0, rotated):
+            self.piece = rotated
