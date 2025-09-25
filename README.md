@@ -16,3 +16,7 @@ Flèche bas: descendre d’un cran
 Flèche haut: pivoter (90°)
 p: pause / reprise
 q: quitter
+## Bon à retenir 
+Score: plus vous effacez de lignes d’un coup, plus le bonus est élevé.
+Niveaux: la vitesse augmente tous les X lignes effacées.
+Stratégie: anticipez 1–2 coups à l’avance et utilisez le hold pour vous sauver.
