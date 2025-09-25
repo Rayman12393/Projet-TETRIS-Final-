@@ -67,3 +67,9 @@ class Tetris:
                         (new_y >= 0 and self.grid[new_y][new_x])):
                         return False
         return True
+    def move_left(self):
+        if self.can_move(-1, 0):
+            self.piece_x -= 1
+    def move_right(self):
+        if self.can_move(1, 0):
+            self.piece_x += 1
