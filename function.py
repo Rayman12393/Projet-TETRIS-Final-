@@ -73,3 +73,10 @@ class Tetris:
     def move_right(self):
         if self.can_move(1, 0):
             self.piece_x += 1
+    def move_down(self):
+        if self.can_move(0, 1):
+            self.piece_y += 1
+            return True
+        else:
+            self.place_piece()
+            return False
