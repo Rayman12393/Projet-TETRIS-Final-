@@ -34,3 +34,23 @@ class Tetris:
         os.system('cls' if os.name == 'nt' else 'clear')
     def draw(self):
         self.clear_screen()
+        display_grid = [row[:] for row in self.grid]
+        for y, row in enumerate(self.piece):
+            for x, cell in enumerate(row):
+                if cell and 0 <= self.piece_y + y < GRID_HEIGHT and 0 <= self.piece_x + x < GRID_WIDTH:
+                    display_grid[self.piece_y + y][self.piece_x + x] = cell
+        print(" TETRIS - Score:", self.score, "")
+        print("+" + "━" * (GRID_WIDTH * 2) + "+")
+        for row in display_grid:
+            line = "┃"
+            for cell in row:
+                if cell:
+                    line += "██"  # Bloc plein
+                else:
+                    line += "  "  # Vide
+            line += "┃"
+            print(line)
+        print("+" + "━" * (GRID_WIDTH * 2) + "+")
+        print(" A/Q: ←  D: →  S: ↓  Z:  X: Quit")
+        if self.game_over:
+            print("\n GAME OVER ")
