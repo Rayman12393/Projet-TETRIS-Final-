@@ -23,3 +23,12 @@ def main():
                     break
             game.update(dt)
             time.sleep(0.05)
+            if game.game_over:
+                print_game(game)
+                print("\nVoulez-vous rejouer ? (o/n)")
+                response = input().lower()
+                if response == 'o' or response == 'oui':
+                    game = TetrisGame()
+                    last_time = time.time()
+                else:
+                    break
