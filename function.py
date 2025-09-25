@@ -94,3 +94,5 @@ class Tetris:
         self.piece = random.choice(PIECES)
         self.piece_x = GRID_WIDTH // 2 - len(self.piece[0]) // 2
         self.piece_y = 0
+        if not self.can_move():
+            self.game_over = True
