@@ -32,3 +32,5 @@ class Tetris:
         self.running = True
     def clear_screen(self):
         os.system('cls' if os.name == 'nt' else 'clear')
+    def draw(self):
+        self.clear_screen()
