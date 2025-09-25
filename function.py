@@ -54,3 +54,16 @@ class Tetris:
         print(" A/Q: ←  D: →  S: ↓  Z:  X: Quit")
         if self.game_over:
             print("\n GAME OVER ")
+    def can_move(self, dx=0, dy=0, piece=None):
+        if piece is None:
+            piece = self.piece
+        for y, row in enumerate(piece):
+            for x, cell in enumerate(row):
+                if cell:
+                    new_x = self.piece_x + x + dx
+                    new_y = self.piece_y + y + dy
+                    if (new_x < 0 or new_x >= GRID_WIDTH or 
+                        new_y >= GRID_HEIGHT or 
+                        (new_y >= 0 and self.grid[new_y][new_x])):
+                        return False
+        return True
