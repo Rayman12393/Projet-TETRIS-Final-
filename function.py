@@ -96,3 +96,12 @@ class Tetris:
         self.piece_y = 0
         if not self.can_move():
             self.game_over = True
+    def clear_lines(self):
+        lines_to_clear = []
+        for y in range(GRID_HEIGHT):
+            if all(self.grid[y]):
+                lines_to_clear.append(y)
+        for y in sorted(lines_to_clear, reverse=True):
+            del self.grid[y]
+            self.grid.insert(0, [0] * GRID_WIDTH)
+            self.score += 100
