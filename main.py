@@ -8,34 +8,35 @@ def main():
     """Fonction principale du jeu"""
     print("Bienvenue dans Tetris Console!")
     print("Appuyez sur une touche pour commencer...")
-     input()
+
+   def main():
+    print("Bienvenue dans Tetris Console!")
+    input("Appuyez sur Entrée pour commencer...")
+
     game = Tetris()
-    last_time = time.time()
-    try:
-        while True:
-            current_time = time.time()
-            dt = (current_time - last_time) * 1000  # Delta time en millisecondes
-            last_time = current_time
-            print_game(game)
-            key = get_input()
-            if key:
-                if not handle_input(game, key):
-                    break
-            game.update(dt)
-            time.sleep(0.05)
-            if game.game_over:
-                print_game(game)
-                print("\nVoulez-vous rejouer ? (o/n)")
-                response = input().lower()
-                if response == 'o' or response == 'oui':
-                    game = TetrisGame()
-                    last_time = time.time()
-                else:
-                    break
-    time.sleep(0.05)
+
+    while game.running and not game.game_over:
+        game.draw()  
+
+        key = get_key()
+        if key:
+            if key in ['Q', 'A']:
+                game.move_left()
+            elif key == 'D':
+                game.move_right()
+            elif key == 'S':
+                game.move_down()
+            elif key == 'Z':
+                game.rotate()
+            elif key == 'X':
+                game.running = False
+                break
+
+        time.sleep(0.05)
+
     game.draw()
     print("Score final:", game.score)
-    print("Merci d'avoir joué!")
-
+    print("Merci d'avoir joué!") 
+   
 if __name__ == "__main__":
     main()
