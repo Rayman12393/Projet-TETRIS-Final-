@@ -9,7 +9,7 @@ def main():
     print("Bienvenue dans Tetris Console!")
     print("Appuyez sur une touche pour commencer...")
      input()
-    game = TetrisGame()
+    game = Tetris()
     last_time = time.time()
     try:
         while True:
