@@ -8,11 +8,7 @@ def main():
     """Fonction principale du jeu"""
     print("Bienvenue dans Tetris Console!")
     print("Appuyez sur une touche pour commencer...")
-
-   def main():
-    print("Bienvenue dans Tetris Console!")
-    input("Appuyez sur Entrée pour commencer...")
-
+    
     game = Tetris()
 
     while game.running and not game.game_over:
