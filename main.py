@@ -8,7 +8,7 @@ def main():
     """Fonction principale du jeu"""
     print("Bienvenue dans Tetris Console!")
     print("Appuyez sur une touche pour commencer...")
-    input()
+     input()
     game = TetrisGame()
     last_time = time.time()
     try:
