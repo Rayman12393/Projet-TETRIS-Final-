@@ -32,11 +32,10 @@ def main():
                     last_time = time.time()
                 else:
                     break
-    except KeyboardInterrupt:
-        print("\n\nMerci d'avoir joué à Tetris Console!")
-    except Exception as e:
-        print(f"\nErreur inattendue: {e}")
-        print("Le jeu va se fermer.")
-    print("Au revoir!")
+    time.sleep(0.05)
+    game.draw()
+    print("Score final:", game.score)
+    print("Merci d'avoir joué!")
+
 if __name__ == "__main__":
     main()
